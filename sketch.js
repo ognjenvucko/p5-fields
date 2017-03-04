@@ -29,15 +29,12 @@ var app = new p5((p) => {
 		});
 		pos.add(mouseVect().sub(middle).setMag(1).mult(-1));
 		p.translate(pos.x, pos.y);
+		let offset = pos.copy().mult(-1);
 		cells.forEach((cell) => {
 			fields.filter((field) => {
-				return field.active;
+				return field.active && field.containsCell(offset, cell);
 			}).forEach((field) => {
-				let fieldPos = pos.copy().mult(-1);
-				let dist = cell.pos.dist(fieldPos);
-				if (dist < cell.radius / 2 + field.radius / 2) {
-					cell.applyForce(cell.pos.copy().sub(fieldPos).setMag(0.012));
-				}
+				cell.applyForce(cell.pos.copy().sub(offset).setMag(0.012));
 			});
 			cell.updateAndDraw();
 		});

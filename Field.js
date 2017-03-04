@@ -10,8 +10,8 @@ class Field {
       return;
     }
     const MAX_RADIUS = 500;
-    this.radius = this.p5.lerp(this.radius, MAX_RADIUS, 0.018);
-    if (this.radius >= MAX_RADIUS - 5) {
+    this.radius = this.p5.lerp(this.radius, MAX_RADIUS, 0.01);
+    if (this.radius >= 0.85 * MAX_RADIUS) {
       this.active = false;
     }
   }
@@ -25,7 +25,7 @@ class Field {
     this.draw();
   }
   containsCell(pos, cell) {
-    var dist = this.p5.dist(this.pos.x, this.pos.y, cell.pos.x, cell.pos.y);
+    var dist = cell.pos.dist(pos);
     return dist < this.radius / 2 - cell.radius / 2;
   }
 }
