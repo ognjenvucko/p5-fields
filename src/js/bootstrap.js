@@ -1,5 +1,5 @@
 requirejs.config({
-  baseUrl: 'js',
+  baseUrl: 'dist/js',
   paths: {
     'p5': 'lib/p5'
   }
