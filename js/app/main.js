@@ -1,6 +1,6 @@
 require(['p5', 'app/Cell', 'app/Field'], function(p5, Cell, Field) {
 
-	const FORCE_MAG = 0.012;
+	const FORCE_MAG = 0.032;
 	const NUM_OF_CELLS = 500;
 	const MIDDLE_CELL_RADIUS = 80;
 
@@ -16,7 +16,7 @@ require(['p5', 'app/Cell', 'app/Field'], function(p5, Cell, Field) {
 		let middle;
 
 		p.setup = () => {
-			p.createCanvas(700, 450);
+			p.createCanvas(p.windowWidth - 20, p.windowHeight - 20);
 			for (var i = 0; i < NUM_OF_CELLS; i++) {
 				cells.push(new Cell(p, randomVect(), 15));
 			}
@@ -32,7 +32,7 @@ require(['p5', 'app/Cell', 'app/Field'], function(p5, Cell, Field) {
 			}).forEach((field) => {
 				field.updateAndDraw();
 			});
-			pos.add(mouseVect().sub(middle).setMag(1).mult(-1));
+			pos.add(mouseVect().sub(middle).setMag(1.5).mult(-1));
 			p.translate(pos.x, pos.y);
 			let offset = pos.copy().mult(-1);
 			cells.forEach((cell) => {
