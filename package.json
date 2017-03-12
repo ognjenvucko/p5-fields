@@ -1,22 +1,18 @@
 {
-  "name": "p5js-fields",
+  "name": "p5-fields",
   "version": "1.0.0",
-  "description": "",
-  "main": "app.js",
+  "description": "Just experimenting with p5",
+  "main": "index.js",
   "scripts": {
-    "build": "babel --out-dir dist src"
+    "gulp": "gulp"
   },
   "author": "Ognjen Vucetic <ognjenvucko@gmail.com>",
   "license": "ISC",
   "devDependencies": {
-    "babel-cli": "^6.23.0",
     "babel-preset-es2015": "^6.22.0",
-    "babel-preset-stage-2": "^6.22.0"
-  },
-  "babel": {
-    "presets": [
-      "es2015",
-      "stage-2"
-    ]
+    "gulp": "^3.9.1",
+    "gulp-babel": "^6.1.2",
+    "gulp-clean": "^0.3.2",
+    "run-sequence": "^1.2.2"
   }
 }
